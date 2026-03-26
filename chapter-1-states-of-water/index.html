@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>States of Water</title>
+</head>
+<body>
+
+<h1>🌊 States of Water</h1>
+
+<p>Are Ice and Water same?</p>
+
+<button onclick="answer('same')">Same</button>
+<button onclick="answer('different')">Different</button>
+
+<p id="result"></p>
+
+<script>
+function answer(choice) {
+    let result = document.getElementById("result");
+
+    if (choice === "same") {
+        result.innerText = "✅ Correct!";
+    } else {
+        result.innerText = "❌ Try again!";
+    }
+}
+</script>
+
+</body>
+</html>
