@@ -6,7 +6,9 @@
 <body>
 
 <h1>🌊 States of Water</h1>
+
 <p>🏆 XP: <span id="xp">0</span></p>
+
 <p>Are Ice and Water same?</p>
 
 <button onclick="answer('same')">Same</button>
@@ -14,9 +16,20 @@
 
 <p id="result"></p>
 
+<hr>
+
+<h2>🌡️ Temperature Simulation</h2>
+
+<p>Temperature: <span id="tempValue">0</span>°C</p>
+
+<input type="range" min="-10" max="120" value="0" id="tempSlider" oninput="updateState()">
+
+<h3 id="state">❄️ Ice</h3>
+
 <script>
 let xp = 0;
 
+// Quiz Logic
 function answer(choice) {
     let result = document.getElementById("result");
     let xpDisplay = document.getElementById("xp");
@@ -29,6 +42,23 @@ function answer(choice) {
     }
 
     xpDisplay.innerText = xp;
+}
+
+// Simulation Logic
+function updateState() {
+    let temp = document.getElementById("tempSlider").value;
+    let stateText = document.getElementById("state");
+    let tempDisplay = document.getElementById("tempValue");
+
+    tempDisplay.innerText = temp;
+
+    if (temp <= 0) {
+        stateText.innerText = "❄️ Ice";
+    } else if (temp > 0 && temp < 100) {
+        stateText.innerText = "💧 Water";
+    } else {
+        stateText.innerText = "☁️ Vapour";
+    }
 }
 </script>
 
